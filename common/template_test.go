@@ -1,4 +1,4 @@
-package lodash
+package common
 
 import "testing"
 

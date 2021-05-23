@@ -1,4 +1,4 @@
-package lodash
+package core
 
 import (
 	. "github.com/jakesally/lodash/common"

@@ -1,4 +1,4 @@
-package lodash
+package common
 
 import "github.com/cheekybits/genny/generic"
 

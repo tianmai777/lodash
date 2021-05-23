@@ -2,6 +2,9 @@
 Lodash util lib for go, to use similar api in js-go-java  
 https://www.lodashjs.com/
 
+# install
+go get github.com/jakesally/lodash
+
 # compare
  - 1.thecasualcoder/godash  
   available functions too few
@@ -13,6 +16,3 @@ https://www.lodashjs.com/
   slice only
  - 5.zillow/godash  
   available functions too few
-  
-# code-gen
-genny -in="template.go" -out="gen_template.go" gen "TP=BUILTINS"
