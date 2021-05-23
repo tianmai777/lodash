@@ -1,4 +1,4 @@
-package common
+package ldc
 
 const (
 	Id   string = "Id"

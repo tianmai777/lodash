@@ -3,7 +3,8 @@ Lodash util lib for go, to use similar api in js-go-java
 https://www.lodashjs.com/
 
 # install
-go get github.com/jakesally/lodash
+go get github.com/jakesally/lodash  
+lda => lodash core, ldc => lodash common
 
 # compare
  - 1.thecasualcoder/godash  

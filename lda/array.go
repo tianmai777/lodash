@@ -1,4 +1,4 @@
-package core
+package lda
 
 import (
 	"github.com/emirpasic/gods/sets/hashset"

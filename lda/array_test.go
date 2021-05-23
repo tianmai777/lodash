@@ -1,7 +1,7 @@
-package core
+package lda
 
 import (
-	. "github.com/jakesally/lodash/common"
+	. "github.com/jakesally/lodash/ldc"
 	"testing"
 )
 

@@ -1,4 +1,4 @@
-package common
+package ldc
 
 import "github.com/cheekybits/genny/generic"
 

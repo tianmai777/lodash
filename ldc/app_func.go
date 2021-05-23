@@ -1,4 +1,4 @@
-package common
+package ldc
 
 import (
 	"bufio"
@@ -76,8 +76,8 @@ func export() {
 func exportWrite(items []string) {
 	headStr := []string{
 		"package lodash",
-		"import \"github.com/jakesally/lodash/common\"",
-		"import \"github.com/jakesally/lodash/core\"",
+		"import \"github.com/jakesally/lodash/ldc\"",
+		"import \"github.com/jakesally/lodash/lda\"",
 		"\r\n",
 	}
 	genStr := strings.Join(headStr, "\r\n")

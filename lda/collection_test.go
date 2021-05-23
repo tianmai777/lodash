@@ -1,8 +1,8 @@
-package core
+package lda
 
 import (
 	"github.com/emirpasic/gods/lists/arraylist"
-	. "github.com/jakesally/lodash/common"
+	. "github.com/jakesally/lodash/ldc"
 	"testing"
 )
 
