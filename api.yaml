@@ -1,0 +1,24 @@
+lda:
+  array:
+    - Chunk
+    - Difference
+    - DifferenceBy
+    - DifferenceWith
+    - Intersection
+    - IntersectionBy
+    - IntersectionWith
+  collection:
+    - Map
+    - Filter
+  object:
+    - Values
+ldc:
+  common:
+    - Md5
+    - ToStr
+    - ParseInt
+    - ParseIntErr
+  TP: # support for generics before go core
+    - ToSliceTP
+    - ToSliceObjByTP
+    - IfTP

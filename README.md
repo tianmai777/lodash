@@ -4,7 +4,10 @@ https://www.lodashjs.com/
 
 # install
 go get github.com/jakesally/lodash  
-lda => lodash core, ldc => lodash common
+lda.xxx => lodash api, ldc.xxx => lodash common
+ 
+# api 
+ [api.yaml](api.yaml)
 
 # compare
  - 1.thecasualcoder/godash  
