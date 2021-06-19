@@ -6,13 +6,6 @@ import (
 	"testing"
 )
 
-type Node struct {
-	Id       string
-	Name     string
-	ParentId string
-	Children []*Node
-}
-
 // to slice object by Node
 func ToSliceObjByNode(items []*Node) []interface{} {
 	var result = make([]interface{}, 0, len(items))

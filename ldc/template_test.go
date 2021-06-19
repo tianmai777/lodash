@@ -12,7 +12,7 @@ func TestToSliceTP(t *testing.T) {
 
 func TestToSliceObjByTP(t *testing.T) {
 	source := []interface{}{1, 2, 3, 4, 5}
-	dest := ToSliceObjByTP(ToSliceTP(source))
+	dest := ToSliceByTP(ToSliceTP(source))
 	if dest[0] != 1 {
 		t.Errorf("TestToSliceObjByTP fail dest>%v", dest)
 	}

@@ -7,11 +7,11 @@ import (
 
 func TestChunk(t *testing.T) {
 	source := []int{1, 2, 3, 4, 5}
-	dest := Chunk(ToSliceObjByInt(source), 10)
+	dest := Chunk(ToSliceByInt(source), 10)
 	if len(dest) != 1 {
 		t.Errorf("TestChunk fail dest>%v", dest)
 	}
-	dest = Chunk(ToSliceObjByInt(source), 2)
+	dest = Chunk(ToSliceByInt(source), 2)
 	if len(dest) != 3 {
 		t.Errorf("TestChunk fail dest>%v", dest)
 	}
@@ -20,7 +20,7 @@ func TestChunk(t *testing.T) {
 		t.Errorf("TestChunk fail dest>%v", dest)
 	}
 	source = []int{1, 2, 3, 4}
-	dest = Chunk(ToSliceObjByInt(source), 2)
+	dest = Chunk(ToSliceByInt(source), 2)
 	if len(dest) != 2 {
 		t.Errorf("TestChunk fail dest>%v", dest)
 	}

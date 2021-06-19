@@ -15,9 +15,18 @@ lda:
 ldc:
   common:
     - Md5
-    - ToStr
+    - ParseHtml
     - ParseInt
-    - ParseIntErr
+    - ParseObj
+    - ParseStrMap
+    - ParseStrObjMap
+    - TemplateGen
+    - TimeSegment
+    - ToJson
+    - ToPercent
+    - ToStr
+    - ToTree
+    - UnixTime
   TP: # support for generics before go core
     - ToSliceTP
     - ToSliceObjByTP

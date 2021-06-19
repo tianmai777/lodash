@@ -14,7 +14,7 @@ func ToSliceBool(items []interface{}) []bool {
 }
 
 // to slice object by bool
-func ToSliceObjByBool(items []bool) []interface{} {
+func ToSliceByBool(items []bool) []interface{} {
 	var result = make([]interface{}, 0, len(items))
 	for _, item := range items {
 		result = append(result, item)
@@ -41,7 +41,7 @@ func ToSliceByte(items []interface{}) []byte {
 }
 
 // to slice object by byte
-func ToSliceObjByByte(items []byte) []interface{} {
+func ToSliceByByte(items []byte) []interface{} {
 	var result = make([]interface{}, 0, len(items))
 	for _, item := range items {
 		result = append(result, item)
@@ -68,7 +68,7 @@ func ToSliceComplex128(items []interface{}) []complex128 {
 }
 
 // to slice object by complex128
-func ToSliceObjByComplex128(items []complex128) []interface{} {
+func ToSliceByComplex128(items []complex128) []interface{} {
 	var result = make([]interface{}, 0, len(items))
 	for _, item := range items {
 		result = append(result, item)
@@ -95,7 +95,7 @@ func ToSliceComplex64(items []interface{}) []complex64 {
 }
 
 // to slice object by complex64
-func ToSliceObjByComplex64(items []complex64) []interface{} {
+func ToSliceByComplex64(items []complex64) []interface{} {
 	var result = make([]interface{}, 0, len(items))
 	for _, item := range items {
 		result = append(result, item)
@@ -122,7 +122,7 @@ func ToSliceError(items []interface{}) []error {
 }
 
 // to slice object by error
-func ToSliceObjByError(items []error) []interface{} {
+func ToSliceByError(items []error) []interface{} {
 	var result = make([]interface{}, 0, len(items))
 	for _, item := range items {
 		result = append(result, item)
@@ -149,7 +149,7 @@ func ToSliceFloat32(items []interface{}) []float32 {
 }
 
 // to slice object by float32
-func ToSliceObjByFloat32(items []float32) []interface{} {
+func ToSliceByFloat32(items []float32) []interface{} {
 	var result = make([]interface{}, 0, len(items))
 	for _, item := range items {
 		result = append(result, item)
@@ -176,7 +176,7 @@ func ToSliceFloat64(items []interface{}) []float64 {
 }
 
 // to slice object by float64
-func ToSliceObjByFloat64(items []float64) []interface{} {
+func ToSliceByFloat64(items []float64) []interface{} {
 	var result = make([]interface{}, 0, len(items))
 	for _, item := range items {
 		result = append(result, item)
@@ -203,7 +203,7 @@ func ToSliceInt(items []interface{}) []int {
 }
 
 // to slice object by int
-func ToSliceObjByInt(items []int) []interface{} {
+func ToSliceByInt(items []int) []interface{} {
 	var result = make([]interface{}, 0, len(items))
 	for _, item := range items {
 		result = append(result, item)
@@ -230,7 +230,7 @@ func ToSliceInt16(items []interface{}) []int16 {
 }
 
 // to slice object by int16
-func ToSliceObjByInt16(items []int16) []interface{} {
+func ToSliceByInt16(items []int16) []interface{} {
 	var result = make([]interface{}, 0, len(items))
 	for _, item := range items {
 		result = append(result, item)
@@ -257,7 +257,7 @@ func ToSliceInt32(items []interface{}) []int32 {
 }
 
 // to slice object by int32
-func ToSliceObjByInt32(items []int32) []interface{} {
+func ToSliceByInt32(items []int32) []interface{} {
 	var result = make([]interface{}, 0, len(items))
 	for _, item := range items {
 		result = append(result, item)
@@ -284,7 +284,7 @@ func ToSliceInt64(items []interface{}) []int64 {
 }
 
 // to slice object by int64
-func ToSliceObjByInt64(items []int64) []interface{} {
+func ToSliceByInt64(items []int64) []interface{} {
 	var result = make([]interface{}, 0, len(items))
 	for _, item := range items {
 		result = append(result, item)
@@ -311,7 +311,7 @@ func ToSliceInt8(items []interface{}) []int8 {
 }
 
 // to slice object by int8
-func ToSliceObjByInt8(items []int8) []interface{} {
+func ToSliceByInt8(items []int8) []interface{} {
 	var result = make([]interface{}, 0, len(items))
 	for _, item := range items {
 		result = append(result, item)
@@ -338,7 +338,7 @@ func ToSliceRune(items []interface{}) []rune {
 }
 
 // to slice object by rune
-func ToSliceObjByRune(items []rune) []interface{} {
+func ToSliceByRune(items []rune) []interface{} {
 	var result = make([]interface{}, 0, len(items))
 	for _, item := range items {
 		result = append(result, item)
@@ -365,7 +365,7 @@ func ToSliceString(items []interface{}) []string {
 }
 
 // to slice object by string
-func ToSliceObjByString(items []string) []interface{} {
+func ToSliceByString(items []string) []interface{} {
 	var result = make([]interface{}, 0, len(items))
 	for _, item := range items {
 		result = append(result, item)
@@ -392,7 +392,7 @@ func ToSliceUint(items []interface{}) []uint {
 }
 
 // to slice object by uint
-func ToSliceObjByUint(items []uint) []interface{} {
+func ToSliceByUint(items []uint) []interface{} {
 	var result = make([]interface{}, 0, len(items))
 	for _, item := range items {
 		result = append(result, item)
@@ -419,7 +419,7 @@ func ToSliceUint16(items []interface{}) []uint16 {
 }
 
 // to slice object by uint16
-func ToSliceObjByUint16(items []uint16) []interface{} {
+func ToSliceByUint16(items []uint16) []interface{} {
 	var result = make([]interface{}, 0, len(items))
 	for _, item := range items {
 		result = append(result, item)
@@ -446,7 +446,7 @@ func ToSliceUint32(items []interface{}) []uint32 {
 }
 
 // to slice object by uint32
-func ToSliceObjByUint32(items []uint32) []interface{} {
+func ToSliceByUint32(items []uint32) []interface{} {
 	var result = make([]interface{}, 0, len(items))
 	for _, item := range items {
 		result = append(result, item)
@@ -473,7 +473,7 @@ func ToSliceUint64(items []interface{}) []uint64 {
 }
 
 // to slice object by uint64
-func ToSliceObjByUint64(items []uint64) []interface{} {
+func ToSliceByUint64(items []uint64) []interface{} {
 	var result = make([]interface{}, 0, len(items))
 	for _, item := range items {
 		result = append(result, item)
@@ -500,7 +500,7 @@ func ToSliceUint8(items []interface{}) []uint8 {
 }
 
 // to slice object by uint8
-func ToSliceObjByUint8(items []uint8) []interface{} {
+func ToSliceByUint8(items []uint8) []interface{} {
 	var result = make([]interface{}, 0, len(items))
 	for _, item := range items {
 		result = append(result, item)
@@ -527,7 +527,7 @@ func ToSliceUintptr(items []interface{}) []uintptr {
 }
 
 // to slice object by uintptr
-func ToSliceObjByUintptr(items []uintptr) []interface{} {
+func ToSliceByUintptr(items []uintptr) []interface{} {
 	var result = make([]interface{}, 0, len(items))
 	for _, item := range items {
 		result = append(result, item)

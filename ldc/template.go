@@ -16,7 +16,7 @@ func ToSliceTP(items []interface{}) []TP {
 }
 
 // to slice object by TP
-func ToSliceObjByTP(items []TP) []interface{} {
+func ToSliceByTP(items []TP) []interface{} {
 	var result = make([]interface{}, 0, len(items))
 	for _, item := range items {
 		result = append(result, item)

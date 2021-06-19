@@ -1,2 +1,2 @@
-// Package lda implements lodash common util
+// Package ldc implements lodash common util
 package ldc
