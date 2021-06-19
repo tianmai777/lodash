@@ -1,5 +1,5 @@
 # lodash
-Lodash util for go, to use similar api in js-go-java  
+lodash util for go, to use similar api in js-go-java  
 https://www.lodashjs.com/
 
 # install

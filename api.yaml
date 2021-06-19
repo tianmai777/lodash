@@ -14,20 +14,24 @@ lda:
     - Values
 ldc:
   common:
+    - FormatTime
+    - Location
     - Md5
     - ParseHtml
     - ParseInt
+    - ParseJwt
     - ParseObj
     - ParseStrMap
     - ParseStrObjMap
     - TemplateGen
     - TimeSegment
     - ToJson
+    - ToJwt
     - ToPercent
     - ToStr
     - ToTree
     - UnixTime
   TP: # support for generics before go core
     - ToSliceTP
-    - ToSliceObjByTP
+    - ToSliceByTP
     - IfTP

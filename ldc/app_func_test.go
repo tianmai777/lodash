@@ -7,7 +7,14 @@ import (
 	"testing"
 )
 
+// echo 'ldc/app_func_test.go:13:1: TestLocation'
+func TestLocation(t *testing.T) {
+	loc := Location()
+	assert.Equal(t, "lodash ldc/app_func_test.go:12:1 TestLocation", loc)
+}
+
 func TestFormatTime(t *testing.T) {
+	// dest = FormatTime(time.Now().Unix(), ADateTime)
 	dest := FormatTime(1624077283, ADateTime)
 	assert.Equal(t, "2021-06-19 12:34:43", dest)
 }
@@ -79,6 +86,18 @@ func TestToJson(t *testing.T) {
 	assert.Equal(t, str, "[1,2]")
 	str = ToJson(math.NaN())
 	assert.Equal(t, "", str)
+}
+
+func TestToJwt(t *testing.T) {
+	secret := "jake"
+	jwtStr := ToJwt(secret, map[string]interface{}{
+		"test": "only",
+	})
+	assert.Equal(t, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZXN0Ijoib25seSJ9.rQyDU5XrUPSlrD5Et_ThO9HqKt0UpZC-g6bB1Hhn5dY",
+		jwtStr)
+	mc, err := ParseJwt(secret, jwtStr)
+	assert.NoError(t, err)
+	assert.Equal(t, "only", mc["test"])
 }
 
 func TestToPercent(t *testing.T) {

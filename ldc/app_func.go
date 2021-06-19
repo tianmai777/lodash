@@ -4,17 +4,32 @@ import (
 	"bytes"
 	"crypto/md5"
 	"encoding/hex"
+	"errors"
 	"fmt"
 	"github.com/PuerkitoBio/goquery"
+	"github.com/dgrijalva/jwt-go"
 	json "github.com/json-iterator/go"
 	"log"
 	"math"
+	"runtime"
 	"strconv"
+	"strings"
 	"text/template"
 	"time"
 )
 
-// format unix time second
+// location for project,file,line,method
+func Location() string {
+	pc, file, line, _ := runtime.Caller(1)
+	methodPath := runtime.FuncForPC(pc).Name()
+	fileIdx := strings.Index(file, "src/") + 4
+	fileSubStr := file[fileIdx:]
+	fileIdx = strings.Index(fileSubStr, "/") + 1
+	methodIdx := strings.LastIndex(methodPath, ".") + 1
+	return fmt.Sprintf("%v %v:%v:1 %v", fileSubStr[:fileIdx-1], fileSubStr[fileIdx:], line, methodPath[methodIdx:])
+}
+
+// format unix time second, now => time.Now().Unix()
 func FormatTime(second int64, format string) string {
 	var t = time.Unix(second, 0)
 	return t.Format(format)
@@ -54,11 +69,22 @@ func ToStr(obj interface{}) string {
 	}
 }
 
+// to jwt silence
+func ToJwt(secret string, args map[string]interface{}) string {
+	// jwt.StandardClaims{}
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims(args))
+	str, err := token.SignedString([]byte(secret))
+	if err != nil {
+		log.Printf("%v err > %v", Location(), err)
+	}
+	return str
+}
+
 // to json silence
 func ToJson(obj interface{}) string {
 	result, err := ToJsonErr(&obj)
 	if err != nil {
-		log.Printf("ToJson err > %v", err)
+		log.Printf("%v err > %v", Location(), err)
 	}
 	return result
 }
@@ -78,7 +104,7 @@ func ToPercent(i float64, precision int, suffix string) string {
 func ParseInt(str string) int {
 	i, err := ParseIntErr(str)
 	if err != nil {
-		log.Printf("ParseInt err > %v", err)
+		log.Printf("%v err > %v", Location(), err)
 	}
 	return i
 }
@@ -88,11 +114,29 @@ func ParseIntErr(str string) (int, error) {
 	return strconv.Atoi(str)
 }
 
+// parse jwt
+func ParseJwt(secret string, jwtStr string) (map[string]interface{}, error) {
+	token, err := jwt.Parse(jwtStr, func(token *jwt.Token) (interface{}, error) {
+		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
+			return nil, fmt.Errorf("signing method err > %v", token.Header["alg"])
+		}
+		return []byte(secret), nil
+	})
+	if err != nil {
+		return nil, err
+	}
+	if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
+		return claims, nil
+	} else {
+		return nil, errors.New("jwt not valid")
+	}
+}
+
 // parse object silence
 func ParseObj(str string, obj interface{}) {
 	err := ParseObjErr(str, obj)
 	if err != nil {
-		log.Printf("ParseObj err > %v", err)
+		log.Printf("%v err > %v", Location(), err)
 	}
 }
 
@@ -165,7 +209,7 @@ func ToTree(aList []*Node) []*Node {
 func ParseHtml(htmlStr string) *goquery.Document {
 	doc, err := ParseHtmlErr(htmlStr)
 	if err != nil {
-		log.Printf("BuildDocument err > %v", err)
+		log.Printf("%v err > %v", Location(), err)
 	}
 	return doc
 }
@@ -194,7 +238,7 @@ func TemplateGenErr(text string, args map[string]interface{}) (string, error) {
 func TemplateGen(text string, args map[string]interface{}) string {
 	str, err := TemplateGenErr(text, args)
 	if err != nil {
-		log.Printf("BuildTemplate err > %v", err)
+		log.Printf("%v err > %v", Location(), err)
 	}
 	return str
 }
