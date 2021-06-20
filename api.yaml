@@ -8,8 +8,10 @@ lda:
     - IntersectionBy
     - IntersectionWith
   collection:
-    - Map
     - Filter
+    - GroupBy
+    - KeyBy
+    - Map
   object:
     - Values
 ldc:
@@ -23,6 +25,7 @@ ldc:
     - ParseObj
     - ParseStrMap
     - ParseStrObjMap
+    - ParseTime
     - TemplateGen
     - TimeSegment
     - ToJson
@@ -30,7 +33,6 @@ ldc:
     - ToPercent
     - ToStr
     - ToTree
-    - UnixTime
   TP: # support for generics before go core
     - ToSliceTP
     - ToSliceByTP

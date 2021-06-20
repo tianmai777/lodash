@@ -105,8 +105,8 @@ func TestToPercent(t *testing.T) {
 	assert.Equal(t, str, "12.300%")
 }
 
-func TestUnixTime(t *testing.T) {
-	r := UnixTime("2021-06-12 18:06:18")
+func TestParseTime(t *testing.T) {
+	r := ParseTime("2021-06-12 18:06:18")
 	assert.Equal(t, 1623492378, r)
 }
 

@@ -159,17 +159,20 @@ func ParseStrObjMap(str string) map[string]interface{} {
 	return result
 }
 
-// to unix timestamp, format "2006-01-02 15:04:05"
-func UnixTime(date string) int {
+// ParseTime to unix silence, format "2006-01-02 15:04:05"
+func ParseTime(date string) int {
 	loc, _ := time.LoadLocation("Asia/Shanghai")
-	tp, _ := time.ParseInLocation(ADateTime, date, loc)
+	tp, err := time.ParseInLocation(ADateTime, date, loc)
+	if err != nil {
+		log.Printf("%v err > %v", Location(), err)
+	}
 	return int(tp.Unix())
 }
 
 // TimeSegment, format 2006-01-02 15:04:05
 func TimeSegment(start string, end string, seconds int) []string {
-	st := UnixTime(start)
-	ed := UnixTime(end)
+	st := ParseTime(start)
+	ed := ParseTime(end)
 	var result []string
 	for st <= ed {
 		result = append(result, time.Unix(int64(st), 0).Format(ADateTime))

@@ -1,6 +1,7 @@
 package lda
 
 import (
+	"github.com/jakesally/lodash/ldc"
 	"reflect"
 )
 
@@ -51,6 +52,38 @@ func Filter(collection []interface{}, predicate interface{}) []interface{} {
 		if op(i) {
 			result = append(result, i)
 		}
+	}
+	return result
+}
+
+// group by collection use field name or func
+func GroupBy(collection []interface{}, iteratee interface{}) map[string][]interface{} {
+	var op func(interface{}) interface{}
+	switch iteratee.(type) {
+	case string:
+		op = func(i interface{}) interface{} {
+			return findFieldVal(i, iteratee.(string))
+		}
+	case func(interface{}) interface{}:
+		op = iteratee.(func(interface{}) interface{})
+	}
+	result := map[string][]interface{}{}
+	for _, i := range collection {
+		key := ldc.ToStr(op(i))
+		if result[key] == nil {
+			result[key] = []interface{}{}
+		}
+		result[key] = append(result[key], i)
+	}
+	return result
+}
+
+// key by collection use field name or func
+func KeyBy(collection []interface{}, iteratee interface{}) map[string]interface{} {
+	gb := GroupBy(collection, iteratee)
+	result := map[string]interface{}{}
+	for k, v := range gb {
+		result[k] = v[0]
 	}
 	return result
 }

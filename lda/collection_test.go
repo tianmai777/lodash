@@ -3,6 +3,7 @@ package lda
 import (
 	"github.com/emirpasic/gods/lists/arraylist"
 	. "github.com/jakesally/lodash/ldc"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
@@ -21,6 +22,45 @@ func TestFindFieldVal(t *testing.T) {
 	if dest != "1" {
 		t.Errorf("TestFindFieldVal fail >%v", dest)
 	}
+}
+
+func TestGroupBy(t *testing.T) {
+	// 1.[]node
+	n1 := &Node{Id: "1", Name: "xxx"}
+	n2 := &Node{Id: "2", Name: "xxx"}
+	n3 := &Node{Id: "1", Name: "z"}
+	var source = arraylist.New(n1, n2, n3)
+	dest := GroupBy(source.Values(), Id)
+	assert.Equal(t, 2, len(dest["1"]))
+	assert.Contains(t, dest["2"], n2)
+
+	//2.func
+	dest = GroupBy(source.Values(), func(item interface{}) interface{} {
+		i := item.(*Node)
+		return len(i.Name)
+	})
+	assert.Equal(t, 2, len(dest["3"]))
+	assert.Contains(t, dest["1"], n3)
+}
+
+func TestKeyBy(t *testing.T) {
+	// 1.[]node
+	n1 := &Node{Id: "1", Name: "x"}
+	n2 := &Node{Id: "2", Name: "y"}
+	n3 := &Node{Id: "1", Name: "z"}
+	var source = arraylist.New(n1, n2, n3)
+	dest := KeyBy(source.Values(), Id)
+	assert.Contains(t, Values(dest), n2)
+
+	//2.func
+	dest = KeyBy(source.Values(), func(item interface{}) interface{} {
+		i := item.(*Node)
+		return i.Name
+	})
+	val := Values(dest)
+	assert.Contains(t, val, n1)
+	assert.Contains(t, val, n2)
+	assert.Contains(t, val, n3)
 }
 
 func TestMap(t *testing.T) {
